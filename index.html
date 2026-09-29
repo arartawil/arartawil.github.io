@@ -4,39 +4,300 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ArarStudio</title>
-  <meta name="description" content="ArarStudio — تطبيقات Arar Al Tawil">
+  <meta name="description" content="ArarStudio: ألعاب وتطبيقات عربية بتشتغل بدون نت · Arabic games and apps that work offline, by Arar Al Tawil.">
+  <link rel="icon" href="assets/icons/domino-cafe.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Lalezar&display=swap" rel="stylesheet">
   <style>
-    :root { --bg: #F4F1EA; --card: #fff; --text: #1A2233; --muted: #5B6475; --accent: #1E4F8F; --line: #E4DED2; }
+    :root {
+      --bg: #F6F1E7;
+      --surface: #FFFFFF;
+      --line: #E6DCCB;
+      --text: #2B1D16;
+      --muted: #6F6153;
+      --accent: #B8862F;
+      --accent-soft: #F3E6C8;
+      --hero: #2B1D16;
+      --hero-text: #F4ECDD;
+      --hero-muted: #C8BBA6;
+      --gold: #E3B04B;
+      --shadow: 0 1px 2px rgba(43, 29, 22, .06), 0 8px 24px rgba(43, 29, 22, .06);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #1F1510;
+        --surface: #2B1D16;
+        --line: #43301F;
+        --text: #F4ECDD;
+        --muted: #C8BBA6;
+        --accent: #E3B04B;
+        --accent-soft: #3A281E;
+        --hero: #150E0A;
+        --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 8px 24px rgba(0, 0, 0, .25);
+      }
+    }
     * { box-sizing: border-box; }
-    body { margin: 0; background: var(--bg); color: var(--text);
-           font: 16px/1.7 system-ui, "Segoe UI", Tahoma, sans-serif; }
-    main { max-width: 640px; margin: 0 auto; padding: 48px 16px; }
-    h1 { margin: 0 0 4px; font-size: 28px; }
-    .sub { color: var(--muted); margin: 0 0 32px; }
-    .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px;
-            padding: 20px; margin-bottom: 16px; }
-    .card h2 { margin: 0 0 4px; font-size: 20px; }
-    .card p { margin: 0 0 12px; color: var(--muted); }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 16px/1.7 "Cairo", system-ui, "Segoe UI", Tahoma, sans-serif;
+    }
     a { color: var(--accent); }
-    footer { color: var(--muted); font-size: 14px; margin-top: 32px; }
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; border-radius: 8px; }
+
+    /* ---- Hero ------------------------------------------------------------ */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background: var(--hero);
+      color: var(--hero-text);
+      padding: 28px 16px 64px;
+    }
+    .hero::before {
+      /* Eight-pointed star lattice, very faint. */
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: .07;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%23E3B04B' stroke-width='1.4'%3E%3Crect x='20' y='20' width='24' height='24'/%3E%3Crect x='20' y='20' width='24' height='24' transform='rotate(45 32 32)'/%3E%3C/g%3E%3C/svg%3E");
+      background-size: 64px 64px;
+    }
+    .bar, .hero-body { position: relative; max-width: 960px; margin: 0 auto; }
+    .bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .wordmark { font-family: "Lalezar", "Cairo", sans-serif; font-size: 26px; letter-spacing: .5px; color: var(--gold); }
+    .lang {
+      background: transparent;
+      color: var(--hero-text);
+      border: 1px solid rgba(244, 236, 221, .3);
+      border-radius: 999px;
+      padding: 6px 16px;
+      font: 700 14px "Cairo", sans-serif;
+      cursor: pointer;
+    }
+    .lang:hover { border-color: var(--gold); }
+    .hero-body { padding-top: 44px; display: grid; gap: 28px; align-items: center; grid-template-columns: 1fr; }
+    @media (min-width: 760px) { .hero-body { grid-template-columns: 1.3fr 1fr; } }
+    .hero h1 {
+      margin: 0 0 12px;
+      font-family: "Lalezar", "Cairo", sans-serif;
+      font-weight: 400;
+      font-size: clamp(34px, 6vw, 52px);
+      line-height: 1.15;
+    }
+    .hero h1 span { color: var(--gold); }
+    .hero p { margin: 0; max-width: 34em; color: var(--hero-muted); font-size: 18px; }
+    .hero-icons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .hero-icons { flex-wrap: nowrap; }
+    .hero-icons img {
+      width: clamp(56px, 17vw, 88px); height: clamp(56px, 17vw, 88px); border-radius: 22%;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, .45);
+      transform: rotate(var(--r, 0deg));
+    }
+
+    /* ---- Apps ------------------------------------------------------------ */
+    main { max-width: 960px; margin: -32px auto 0; padding: 0 16px 48px; position: relative; }
+    .grid { display: grid; gap: 16px; grid-template-columns: 1fr; }
+    @media (min-width: 720px) { .grid { grid-template-columns: 1fr 1fr; } }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 16px;
+      align-items: start;
+    }
+    .card img { width: 72px; height: 72px; border-radius: 18px; }
+    .card h2 { margin: 0; font-size: 20px; line-height: 1.35; }
+    .kind {
+      display: inline-block;
+      margin: 4px 0 8px;
+      padding: 1px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .card p { margin: 0 0 14px; color: var(--muted); }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+    .play {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 7px 14px;
+      border-radius: 12px;
+      background: var(--text);
+      color: var(--bg);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .play svg { width: 16px; height: 16px; }
+    .soon {
+      padding: 6px 12px;
+      border-radius: 12px;
+      border: 1px dashed var(--line);
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .privacy { font-size: 14px; font-weight: 600; }
+
+    /* ---- About / footer ------------------------------------------------- */
+    .about {
+      margin-top: 28px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+    .about h3 { margin: 0 0 6px; font-size: 18px; }
+    .about p { margin: 0; color: var(--muted); }
+    footer { max-width: 960px; margin: 0 auto; padding: 0 16px 40px; color: var(--muted); font-size: 14px; text-align: center; }
+    footer a { font-weight: 700; }
+
+    [data-en] { unicode-bidi: plaintext; }
   </style>
 </head>
 <body>
-  <main>
-    <h1>ArarStudio</h1>
-    <p class="sub">تطبيقات Arar Al Tawil · Apps by Arar Al Tawil</p>
+  <header class="hero">
+    <div class="bar">
+      <div class="wordmark">ArarStudio</div>
+      <button class="lang" id="lang" type="button" aria-label="Switch language">English</button>
+    </div>
+    <div class="hero-body">
+      <div>
+        <h1 data-ar="ألعاب وتطبيقات <span>عربية</span>، بتشتغل بدون نت"
+            data-en="Arabic games and apps that <span>work offline</span>"></h1>
+        <p data-ar="من الدومينو بأجواء المقهى لألغاز الكلمات وحاسبة المعدّل. بدون حسابات، وبدون ما تجمع بياناتك."
+           data-en="From café dominoes to word puzzles and a GPA calculator. No accounts, and no collecting your data."></p>
+      </div>
+      <div class="hero-icons" aria-hidden="true">
+        <img src="assets/icons/domino-cafe.png" alt="" style="--r:-6deg">
+        <img src="assets/icons/word-oasis.png" alt="" style="--r:4deg">
+        <img src="assets/icons/potion-pour.png" alt="" style="--r:-3deg">
+        <img src="assets/icons/moaddali.png" alt="" style="--r:6deg">
+      </div>
+    </div>
+  </header>
 
-    <section class="card">
-      <h2>معدّلي — Moaddali</h2>
-      <p>حاسبة معدّل جامعي لطلاب الأردن، بتشتغل بدون إنترنت وبدون تسجيل دخول.<br>
-         Offline university GPA calculator for students in Jordan.</p>
-      <a href="https://github.com/arartawil/gaems/blob/master/README.md">سياسة الخصوصية · Privacy policy</a>
+  <main>
+    <!--
+      To add a Google Play button once an app is published, set data-play to
+      its package name, e.g. data-play="com.arartawil.domino_cafe".
+    -->
+    <section class="grid" aria-label="Apps">
+      <article class="card" data-play="">
+        <img src="assets/icons/domino-cafe.png" alt="">
+        <div>
+          <h2 data-ar="دومينو المقهى" data-en="Domino Café"></h2>
+          <span class="kind" data-ar="لعبة" data-en="Game"></span>
+          <p data-ar="دومينو المقهى الأصيل: سحب وبلوك وخمسات ضد كمبيوتر ذكي، لحالك أو مع شريك. ثيمات دمشقية ومغربية، وليالي رمضان."
+             data-en="Classic café dominoes: Draw, Block and All Fives against smart bots, solo or with a partner. Damascene and Moroccan themes, and Ramadan nights."></p>
+          <div class="actions"></div>
+        </div>
+      </article>
+
+      <article class="card" data-play="">
+        <img src="assets/icons/word-oasis.png" alt="">
+        <div>
+          <h2 data-ar="واحة الكلمات" data-en="Word Oasis"></h2>
+          <span class="kind" data-ar="لعبة" data-en="Game"></span>
+          <p data-ar="اسحب الحروف وكوّن الكلمات: لغز كلمات عربي بمئات المراحل وتحدٍّ يومي، تحت سماء الصحراء."
+             data-en="Swipe letters to make words: an Arabic word puzzle with hundreds of levels and a daily challenge, under a desert sky."></p>
+          <div class="actions"></div>
+        </div>
+      </article>
+
+      <article class="card" data-play="">
+        <img src="assets/icons/potion-pour.png" alt="">
+        <div>
+          <h2 data-ar="سكب الجرعات" data-en="Potion Pour"></h2>
+          <span class="kind" data-ar="لعبة" data-en="Game"></span>
+          <p data-ar="لغز هادئ لفرز الألوان: اسكب الجرعات بين القوارير حتى تحمل كل قارورة لونًا واحدًا. أكثر من 1000 مرحلة."
+             data-en="A calm color-sort puzzle: pour potions between flasks until each holds one color. Over 1,000 levels."></p>
+          <div class="actions"></div>
+        </div>
+      </article>
+
+      <article class="card" data-play="">
+        <img src="assets/icons/moaddali.png" alt="">
+        <div>
+          <h2 data-ar="معدّلي" data-en="Moaddali"></h2>
+          <span class="kind" data-ar="تطبيق" data-en="App"></span>
+          <p data-ar="احسب معدّلك الفصلي والتراكمي بأنظمة 100 و4 و5، وخطّط للمعدّل اللي بدك توصله."
+             data-en="Work out your semester and cumulative GPA on 100, 4 and 5-point scales, and plan the GPA you want."></p>
+          <div class="actions"></div>
+        </div>
+      </article>
     </section>
 
-    <footer>
-      <a href="mailto:arartawil@gmail.com">arartawil@gmail.com</a> ·
-      <a href="http://arartawil.com">arartawil.com</a>
-    </footer>
+    <section class="about">
+      <h3 data-ar="عن الاستوديو" data-en="About"></h3>
+      <p data-ar="ArarStudio استوديو مستقل لعرار الطويل. كل تطبيقاتنا بتشتغل بدون إنترنت وبتحفظ تقدّمك على جهازك فقط. بعضها فيه إعلانات من Google AdMob، والتفاصيل بسياسة الخصوصية."
+         data-en="ArarStudio is the independent studio of Arar Al Tawil. All our apps work offline and keep your progress on your device only. Some show ads from Google AdMob; see the privacy policy for details."></p>
+    </section>
   </main>
+
+  <footer>
+    <a href="mailto:arartawil@gmail.com">arartawil@gmail.com</a>
+    ·
+    <a href="https://github.com/arartawil/gaems/blob/master/README.md" data-ar="سياسة الخصوصية" data-en="Privacy policy"></a>
+    ·
+    <span>© <span id="year"></span> ArarStudio</span>
+  </footer>
+
+  <script>
+    (function () {
+      var PRIVACY = 'https://github.com/arartawil/gaems/blob/master/README.md';
+      var PLAY_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 2.5v19a1 1 0 0 0 1.5.86l15-9.5a1 1 0 0 0 0-1.72l-15-9.5A1 1 0 0 0 4 2.5z"/></svg>';
+      var TEXT = {
+        ar: { play: 'حمّله من Google Play', soon: 'قريبًا على Google Play', privacy: 'سياسة الخصوصية', toggle: 'English' },
+        en: { play: 'Get it on Google Play', soon: 'Coming soon to Google Play', privacy: 'Privacy policy', toggle: 'العربية' }
+      };
+
+      function saved() {
+        try { return localStorage.getItem('lang'); } catch (e) { return null; }
+      }
+      function remember(lang) {
+        try { localStorage.setItem('lang', lang); } catch (e) { /* private mode */ }
+      }
+
+      function render(lang) {
+        var t = TEXT[lang];
+        document.documentElement.lang = lang;
+        document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+        document.querySelectorAll('[data-ar]').forEach(function (el) {
+          el.innerHTML = el.getAttribute('data-' + lang);
+        });
+        document.querySelectorAll('.card').forEach(function (card) {
+          var pkg = card.getAttribute('data-play');
+          var name = card.querySelector('h2').textContent;
+          var actions = card.querySelector('.actions');
+          var store = pkg
+            ? '<a class="play" href="https://play.google.com/store/apps/details?id=' + pkg + '">' + PLAY_ICON + t.play + '</a>'
+            : '<span class="soon">' + t.soon + '</span>';
+          actions.innerHTML = store +
+            '<a class="privacy" href="' + PRIVACY + '" aria-label="' + t.privacy + ': ' + name + '">' + t.privacy + '</a>';
+          card.querySelector('img').alt = name;
+        });
+        document.getElementById('lang').textContent = t.toggle;
+      }
+
+      var lang = saved() || ((navigator.language || '').slice(0, 2) === 'ar' ? 'ar' : 'en');
+      document.getElementById('year').textContent = new Date().getFullYear();
+      render(lang);
+      document.getElementById('lang').addEventListener('click', function () {
+        lang = lang === 'ar' ? 'en' : 'ar';
+        remember(lang);
+        render(lang);
+      });
+    })();
+  </script>
 </body>
 </html>
