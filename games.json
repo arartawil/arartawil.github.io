@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "note": "Shared 'More games' list read by the developer's games. Add a game once it is live on Google Play; every game picks it up within a day. Source: Pollen Pop release/cross_promo/games.json.",
+  "games": [
+    {
+      "package": "com.arartawil.potion_pour",
+      "name": {
+        "ar": "سكب الجرعات",
+        "en": "Potion Pour"
+      },
+      "blurb": {
+        "ar": "لغز هادئ لفرز الألوان: اسكب الجرعات بين القوارير حتى تحمل كل قارورة لونًا واحدًا. أكثر من 1000 مرحلة.",
+        "en": "A calm color-sort puzzle: pour potions between flasks until each holds one color. Over 1,000 levels."
+      },
+      "icon": "https://arartawil.github.io/assets/icons/potion-pour.png"
+    },
+    {
+      "package": "com.arartawil.word_oasis",
+      "name": {
+        "ar": "واحة الكلمات",
+        "en": "Word Oasis"
+      },
+      "blurb": {
+        "ar": "اسحب الحروف وكوّن الكلمات: لغز كلمات عربي بمئات المراحل وتحدٍّ يومي، تحت سماء الصحراء.",
+        "en": "Swipe letters to make words: an Arabic word puzzle with hundreds of levels and a daily challenge, under a desert sky."
+      },
+      "icon": "https://arartawil.github.io/assets/icons/word-oasis.png"
+    },
+    {
+      "package": "com.arartawil.domino_cafe",
+      "name": {
+        "ar": "دومينو المقهى",
+        "en": "Domino Café"
+      },
+      "blurb": {
+        "ar": "دومينو المقهى الأصيل: سحب وبلوك وخمسات ضد كمبيوتر ذكي، لحالك أو مع شريك.",
+        "en": "Classic café dominoes: Draw, Block and All Fives against smart bots, solo or with a partner."
+      },
+      "icon": "https://arartawil.github.io/assets/icons/domino-cafe.png"
+    },
+    {
+      "package": "com.arartawil.ant_raid",
+      "name": {
+        "ar": "غارة النمل",
+        "en": "Ant Raid"
+      },
+      "blurb": {
+        "ar": "افقس فرق النمل، وارسم مسار فيرومون بإصبعك، واقتحم تلّ العدو.",
+        "en": "Hatch ant squads, draw a pheromone trail with your finger and raid the enemy hill."
+      },
+      "icon": "https://arartawil.github.io/assets/icons/ant-raid.png"
+    },
+    {
+      "package": "com.arartawil.streetduel",
+      "name": {
+        "ar": "Street Duel",
+        "en": "Street Duel"
+      },
+      "blurb": {
+        "ar": "كرة شوارع واحد ضد واحد تحت الأضواء: هدف واحد وحارس واحد، وأول من يسجّل 5 يفوز.",
+        "en": "1v1 street football under the floodlights. One goal, one keeper, first to 5!"
+      },
+      "icon": "https://arartawil.github.io/assets/icons/street-duel.png"
+    }
+  ]
+}
