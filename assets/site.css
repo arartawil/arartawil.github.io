@@ -37,6 +37,7 @@ h3{font:800 20px/1.35 "Cairo","Barlow",sans-serif;margin:0}
 .btn.ghost{border:1px solid var(--line);color:var(--text)}
 .btn.ghost:hover{border-color:var(--gold)}
 .btn svg{width:18px;height:18px}
+.btn.soon{background:rgba(255,200,69,.14);color:var(--gold);border:1px dashed var(--gold)}
 .game-hero{display:grid;gap:24px;align-items:center;padding:32px 0}
 @media(min-width:800px){.game-hero{grid-template-columns:160px 1fr}}
 .game-hero img.icon{width:160px;height:160px;border-radius:36px;box-shadow:0 14px 40px rgba(0,0,0,.45)}
