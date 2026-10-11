@@ -3,6 +3,30 @@
   "note": "Shared 'More games' list read by the developer's games. Add a game once it is live on Google Play; every game picks it up within a day. Source: Pollen Pop release/cross_promo/games.json.",
   "games": [
     {
+      "package": "com.arartawil.pollenpop",
+      "name": {
+        "ar": "Pollen Pop",
+        "en": "Pollen Pop"
+      },
+      "blurb": {
+        "ar": "لغز ترتيب هادي: اضغط على الخلية لتطلع النحلات وتجمع حبوب اللقاح الملونة، واكشف 60 صورة. 300 مرحلة.",
+        "en": "A calm bee sort puzzle: send the bees out to collect coloured pollen and reveal 60 pictures. 300 levels."
+      },
+      "icon": "https://arartawil.github.io/assets/icons/pollen-pop.png"
+    },
+    {
+      "package": "com.arartawil.hand_cafe",
+      "name": {
+        "ar": "هاند المقهى",
+        "en": "Hand Café"
+      },
+      "blurb": {
+        "ar": "هاند أردني بدون نت: العب ضد الكمبيوتر لحالك أو هاند شريك اثنين ضد اثنين. نزول 51، جوكر، وهاند!",
+        "en": "Jordanian Hand rummy, offline: play the computer on your own or team up in Partner Hand, two against two."
+      },
+      "icon": "https://arartawil.github.io/assets/icons/hand-cafe.png"
+    },
+    {
       "package": "com.arartawil.potion_pour",
       "name": {
         "ar": "سكب الجرعات",
