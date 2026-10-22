@@ -3,6 +3,18 @@
   "note": "Shared 'More games' list read by the developer's games. Add a game once it is live on Google Play; every game picks it up within a day. Source: Pollen Pop release/cross_promo/games.json.",
   "games": [
     {
+      "package": "com.ararstudio.calmarrows",
+      "name": {
+        "ar": "أسهم هادئة",
+        "en": "Calm Arrows"
+      },
+      "blurb": {
+        "ar": "لغز أسهم هادئ: اضغط الأسهم لتطلع من الصورة، واجمع 120 صورة بالألبوم. بدون مؤقت.",
+        "en": "A calm arrow puzzle: tap the arrows out of the picture and collect 120 pictures. No timer."
+      },
+      "icon": "https://arartawil.github.io/assets/icons/calm-arrows.png"
+    },
+    {
       "package": "com.arartawil.pollenpop",
       "name": {
         "ar": "Pollen Pop",
