@@ -3,6 +3,30 @@
   "note": "Shared 'More games' list read by the developer's games. Add a game once it is live on Google Play; every game picks it up within a day. Source: Pollen Pop release/cross_promo/games.json.",
   "games": [
     {
+      "package": "com.arartawil.kassara",
+      "name": {
+        "ar": "كسّارة",
+        "en": "Kassara"
+      },
+      "blurb": {
+        "ar": "اكسر الصخور بجرافتك، كوّم الجواهر وبيعها، وطوّر جرافتك بأربعة مناجم.",
+        "en": "Crush rocks with your bulldozer, stack the gems, sell them and upgrade across four mines."
+      },
+      "icon": "https://arartawil.github.io/assets/icons/kassara.png"
+    },
+    {
+      "package": "com.arartawil.shifra",
+      "name": {
+        "ar": "شيفرة",
+        "en": "Shifra"
+      },
+      "blurb": {
+        "ar": "لغز أمثال عربية: كل رقم بيخبّي حرف، حلّ الصور واكشف المثل. بدون نت.",
+        "en": "An Arabic proverb puzzle: every number hides a letter. Solve the picture clues. Offline."
+      },
+      "icon": "https://arartawil.github.io/assets/icons/shifra.png"
+    },
+    {
       "package": "com.ararstudio.calmarrows",
       "name": {
         "ar": "أسهم هادئة",
