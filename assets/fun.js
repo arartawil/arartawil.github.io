@@ -33,7 +33,7 @@ function go(i,open){ cur=(i+G.length)%G.length; var g=G[cur];
  clearTimeout(tm); tm=setTimeout(function(){ walker.classList.remove('walking'); if(open) show(cur); },1150); }
 function show(i){ var g=G[i]; $('box').style.setProperty('--c',g.c);
  $('pIco').src=g.ico; $('pName').textContent=g.n; $('pTag').textContent=g.k; $('pZone').textContent='📍 '+g.z; $('pText').textContent=g.t;
- $('pBtn').innerHTML=g.pkg?'<a class="btn play" href="https://play.google.com/store/apps/details?id='+g.pkg+'">▶ حمّلها من Google Play</a>':'<span class="btn soon">⏳ قريبًا على Google Play</span>';
+ $('pBtn').innerHTML=g.web?'<a class="btn play" href="'+g.web+'">▶ العبها أونلاين</a>':g.pkg?'<a class="btn play" href="https://play.google.com/store/apps/details?id='+g.pkg+'">▶ حمّلها من Google Play</a>':'<span class="btn soon">⏳ قريبًا على Google Play</span>';
  $('pMore').href='/'+g.s+'/'; pop.classList.add('on'); }
 function hide(){ pop.classList.remove('on'); }
 $('x').onclick=hide; pop.addEventListener('click',function(ev){ if(ev.target===pop) hide(); });
